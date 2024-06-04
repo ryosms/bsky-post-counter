@@ -13,5 +13,7 @@ jobs:
         run: |
           git config user.name "bsky-post-counter"
           git config user.email "bsky-post-count@example.com"
-      - name: commit
-        run: git commit -m "Auto commit" --allow-empty
+      - name: commit and push
+        run: |
+          git commit -m "Auto commit" --allow-empty
+          git push origin main
