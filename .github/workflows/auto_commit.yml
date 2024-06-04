@@ -1,0 +1,17 @@
+---
+name: auto commit
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "15 9 1 * *"
+jobs:
+  auto_commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: setup git config
+        run: |
+          git config user.name "bsky-post-counter"
+          git config user.email "bsky-post-count@example.com"
+      - name: commit
+        run: git commit -m "Auto commit" --allow-empty
