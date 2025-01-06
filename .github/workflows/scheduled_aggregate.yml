@@ -23,9 +23,9 @@ jobs:
           poetry run bsky-counter \
             -u "${{ vars.bsky_handle }}" \
             -t "${{ vars.timezone }}" \
-            ${{ vars.post_flag }} ${{ vars.logging_flag }} \
             -p "${{ vars.pixela_user }}" \
-            -g "${{ vars.pixela_graph_id }}"
+            -g "${{ vars.pixela_graph_id }}" \
+            ${{ vars.post_flag }} ${{ vars.logging_flag }}
         env:
           BSKY_PASSWORD: ${{ secrets.BSKY_PASSWORD }}
           PIXELA_API_TOKEN: ${{ secrets.PIXELA_API_TOKEN }}
