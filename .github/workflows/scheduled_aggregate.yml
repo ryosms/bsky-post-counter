@@ -8,15 +8,14 @@ jobs:
   aggregate:
     runs-on: ubuntu-latest
     steps:
+      - name: setup poetry
+        run: pipx install poetry==1.8.5
       - uses: actions/checkout@v4
       - name: setup python
         uses: actions/setup-python@v5
         with:
           python-version: 3.9
-      - name: setup Poetry
-        uses: threeal/setup-poetry-action@v1.1.0
-        with:
-          version: 1.8.5
+          cache: 'poetry'
       - name: install libraries
         run: poetry install
       - name: run aggregate
